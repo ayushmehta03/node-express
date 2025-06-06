@@ -3,7 +3,12 @@ const app=express();
 const dotenv=require('dotenv')
 dotenv.config();
 const userRouter=require('./routes/user.routes')
+const cookiePraser=require('cookie-parser');
+
 app.set('view engine','ejs');
+
+app.use(cookiePraser());
+
 const connectToDB=require('./config/db')
 connectToDB();
 
